@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
-const users = require('')
+const users = require('../controllers/users');
 
 router.post('/register', catchAsync(users.register));
 
