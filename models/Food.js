@@ -3,17 +3,13 @@ const Schema = mongoose.Schema;
 
 const FoodSchema = new Schema({
     timings:
-    [
         {
             type: String
-        }
-    ],
+        },
     limit:
-    [
         {
             type: Number
-        }
-    ],
+        },
     menu:
     {
         type:mongoose.Schema.Types.Mixed
@@ -21,6 +17,14 @@ const FoodSchema = new Schema({
     owner:
     {
         type: mongoose.Schema.Types.ObjectId
+    },
+    cost:
+    {
+        type:Number
+    },
+    veg:
+    {
+        type:Boolean
     },
     addtionalItems:[
         {

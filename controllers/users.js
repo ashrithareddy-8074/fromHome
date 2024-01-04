@@ -70,6 +70,7 @@ module.exports.renewToken = async(req, res) => {
     }
     const accessToken = jwt.sign(user2, process.env.ACCESS_TOKEN_SECRET);
     const newrefreshToken = jwt.sign(user2, process.env.REFRESH_TOKEN_SECRET);
+    res.cookie('refresh-token', newrefreshToken);
     res.header('refresh-token', newrefreshToken);
     res.header('auth-token', accessToken).send({
         status: "Success",
@@ -84,5 +85,5 @@ module.exports.renewToken = async(req, res) => {
 
 module.exports.logout = async (req, res) => {
     res.clearCookie('refresh_token');
-    res.send({ status: "Success", message: "Loged Out Sucessfully" });
+    res.send({ status: "Success", message: "Logged Out Sucessfully" });
 }
